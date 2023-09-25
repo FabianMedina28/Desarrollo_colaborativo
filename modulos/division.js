@@ -7,4 +7,4 @@ function division (num1, num2){
     } 
 }
 
-module.exports = division;
+module.exports = division();

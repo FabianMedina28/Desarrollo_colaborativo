@@ -1,8 +1,8 @@
-const suma = require("./suma");
-const resta = require ("./resta");
-const multiplicacion = require ("./multiplicacion");
-const division = require ("./division");
-const {leerDatos} = require ("../app.js")
+const suma = require("./modulos/suma");
+const resta = require ("./modulos/resta");
+const multiplicacion = require ("./modulos/multiplicacion");
+const division = require ("./modulos/division");
+const {leerDatos} = require ("./modulos/app.js")
 const leer = leerDatos()
 function calculadora(num1, num2, callback) {
 let operacion;
@@ -36,7 +36,8 @@ operacion:operacion,
 resultado:resultado}
 return historial
 }
-const {guardarDatos} = require ("../app.js")
+const {guardarDatos} = require ("./modulos/app.js")
 let calcular = calculadora (+process.argv[2],+process.argv[3])
 let leyendo = leer.push(calcular)
 guardarDatos(leer)
+console.log(leer)
