@@ -5,11 +5,14 @@ const division = require ("./modulos/division");
 const {leerDatos} = require ("./modulos/app.js")
 const leer = leerDatos()
 
-let num1 = +process.argv[2]
-let num2 = +process.argv[3]
-let cb = process.argv[4]
+let numero1 = +process.argv[2]
+let numero2 = +process.argv[3]
+let calculo = process.argv[4]
 
-function calculadora(num1, num2, callback) {
+if (process.argv[2] === "historial"){
+    console.log (leer)
+}else{
+function calculadora(numero1, numero2, callback) {
 let operacion =" ";
 switch (process.argv[4]) {
     case "suma": 
@@ -33,13 +36,17 @@ switch (process.argv[4]) {
         break;
 }
 
-let resultado = callback(num1, num2)
+let resultado = callback(numero1, numero2)
 let historial = {
 operacion:operacion,
 resultado:resultado}
 return historial
 }
 const {guardarDatos} = require ("./modulos/app.js")
-let calcular = calculadora (num1,num2,cb)
+let calcular = calculadora (numero1,numero2,calculo)
 leer.push(calcular)
 guardarDatos(leer)
+
+
+}
+
